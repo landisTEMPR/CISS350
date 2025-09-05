@@ -6,15 +6,18 @@ Mat::Mat(int nrows, int ncols)
     : nrows_(nrows), ncols_(ncols), p_(new double[nrows * ncols])
 {}
 
+
 Mat::~Mat()
 {
     delete[] p_;
 }
 
+
 int Mat::nrows() const
 {
     return nrows_;
 }
+
 
 int Mat::ncols() const
 {
@@ -26,6 +29,13 @@ double Mat::operator()(int r, int c) const
 {
     return *(p_ + r * ncols_ + c);
 }
+
+
+double & Mat::operator()(int r, int c)
+{
+    return *(p_ + r * ncols_ + c);
+}
+
 
 std::ostream & operator<<(std::ostream & cout, const Mat & m)
 {
