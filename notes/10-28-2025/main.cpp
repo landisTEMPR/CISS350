@@ -16,6 +16,8 @@ public:
     Node * left_;
     Node * right_;
 };
+
+
 std::ostream & operator<<(std::ostream & cout, const Node & node)
 {
     cout << "<Node " << &node << ' '
@@ -25,6 +27,8 @@ std::ostream & operator<<(std::ostream & cout, const Node & node)
          << "right:" << node.right_ << '>';
     return cout;
 }
+
+
 void preorder_print(Node * proot)
 {
     if (proot == NULL)
@@ -39,6 +43,8 @@ void preorder_print(Node * proot)
     }
     return;
 }
+
+
 void inorder_print(Node * proot)
 {
     if (proot == NULL)
@@ -53,6 +59,8 @@ void inorder_print(Node * proot)
     }
     return;
 }
+
+
 void postorder_print(Node * proot)
 {
     if (proot == NULL)
