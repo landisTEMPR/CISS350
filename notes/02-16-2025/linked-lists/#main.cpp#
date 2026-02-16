@@ -1,0 +1,73 @@
+#include <iostream>
+
+class SLNode
+{
+public:
+    SLNode(int key, SLNode * next = NULL)
+        : key_(key), next_(next)
+    {}
+    int key_;
+    SLNode * next_;
+private:
+    
+};
+
+std::ostream & operator<<(std::ostream & cout, const SLNode & n)
+{
+    cout << "<SLNode " << &n
+         << " key:" << n.key_ << ", "
+         << "next:" << n.next_
+         << '>';
+    return cout;
+}
+
+class SLList
+{
+public:
+    SLList()
+        : phead_(NULL)
+    {}
+    void insert_head(int key)
+    {
+       
+    }
+    SLNode * phead_;
+};
+
+int main()
+{
+    // create nodes on heap
+    SLNode * n5 = new SLNode(5); 
+    SLNode * n3 = new SLNode(3); n5->next_ = n3;
+    SLNode * n1 = new SLNode(1); n3->next_ = n1;
+    SLNode * n7 = new SLNode(7); n1->next_ = n7;
+
+    // print everything that phead points to. (print the whole list)
+    SLNode * phead = n5;
+    while (phead != NULL)
+    {
+        std::cout << (*phead) << '\n';
+        phead = phead->next_;
+    }
+    
+    phead = n5;
+    std::cout << '{';
+    while (phead != NULL)
+    {
+        std::cout << (phead->key_);
+        phead = phead->next_;
+    }
+    std::cout << '}' << '\n';
+
+    // SLList list
+    // Be able to list.insert_head(42),
+    // list.remove_head, list.insert_tail,
+    // list.remove_tail.
+    SLList list;
+    list.insert_head(0);
+    list.insert_head(1);
+    list.insert_head(3);
+    list.insert_head(5);
+
+    return 0;
+}
