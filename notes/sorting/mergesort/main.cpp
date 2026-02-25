@@ -1,5 +1,6 @@
 #include <iostream>
 
+
 void merge(int x[], int start, int mid, int end, int t[])
 {
     int i = start;   // left half pointer
@@ -25,6 +26,7 @@ void merge(int x[], int start, int mid, int end, int t[])
         x[l] = t[l];
 }
 
+
 void mergeSort(int x[], int start, int end, int t[])
 {
     int n = end - start;
@@ -36,16 +38,26 @@ void mergeSort(int x[], int start, int end, int t[])
     merge(x, start, mid, end, t);
 }
 
+
 int main()
 {
     int x[] = {1, 3, 4, 2, 1, 9, 10, 5, 2, 1, 9, 6, 8};
     int size = sizeof(x) / sizeof(x[0]);
     int t[size];
 
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << x[i] << " ";
+    }
+    std::cout << '\n';
+
     mergeSort(x, 0, size, t);
 
     for (int i = 0; i < size; i++)
+    {
         std::cout << x[i] << " ";
+    }
+    std::cout << '\n';
 
     return 0;
 }
