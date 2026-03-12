@@ -1,0 +1,63 @@
+The goal is to compute the big-$O$ of the runtime performance
+of the following algorithm. 
+Here's the algorithm:
+\begin{Verbatim}[frame=single]
+INPUT:  x - array of doubles
+        n - size of x
+        a - double
+        b - int
+OUTPUT: result is stored in z
+ALGORITHM:
+    z = a + b * b                          
+
+    for i = 0, 1, 2, ..., n-1:
+        a = a + 1                          
+        x[i] = a + z + b;                  
+        z = z + 1                          
+
+    for i = 0, 1, 2, ..., (n-1)/4:
+        x[i] = x[i] * z                    
+
+    z = z + n                              
+\end{Verbatim}
+This is rewritten with timings as follows:
+\begin{Verbatim}[frame=single]
+INPUT:  x - array of doubles
+        n - size of x
+        a - double
+        b - int
+OUTPUT: z
+
+ALGORITHM:
+          z = a + b * b                      time t1
+
+          i = 0                              time t2
+LOOP1:    if i >= n:                         time t3
+              goto ENDLOOP1                  time t4 
+          a = a + 1                          time t5
+          x[i] = a + z + b;                  time t6
+          z = z + 1                          time t7
+          i = i + 1                          time t8
+          goto LOOP1                         time t9
+ENDLOOP1:
+
+          i = 0                              time t10
+LOOP2:    if i >= (n - 1) / 4:               time t11
+              goto ENDLOOP2                  time t12
+          x[i] = x[i] * z                    time t13
+          i = i + 1                          time t14
+          goto LOOP2                         time t15
+ENDLOOP2:
+          z = z + n                          time t16   
+\end{Verbatim}
+
+(You can pretend that $n - 1$ is divisible by 4 so that
+$(n - 1)/4$ is an integer.)
+
+(a) Write down $T(n)$ in terms of $n$ and the 
+$t_1$, $t_2$, $t_3$, ....
+You should write it as a polynomial of $n$ from the highest
+degree term to the lowest.
+
+(b) Write down the big-$O$ of $T(n)$ as $O(n^k)$
+where $k$ is the smallest possible  positive integer.

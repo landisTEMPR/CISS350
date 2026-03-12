@@ -1,0 +1,48 @@
+%-*-latex-*-
+The purpose of this question is to compute the big-O runtime
+of an algorithm using experimental and brute force curve-fitting.
+
+First implement the bubblesorting algorithm.
+Use it collect runtimes for arrays of size $n = 2000, 4000, 6000$, etc.
+until you have enough points to plot a graph of the runtime.
+You should have at least 10 data points.
+(For each $n$, you should do about 10 experiments and then take
+the average.)
+Specifically, when you run your program, it prompts
+the user for $n$ and $k$.
+It then
+performs bubblesort on \verb!x[0]!, ..., \verb!x[n-1]! $k$ times and
+reports on the average time.
+Here's a test run:
+\begin{Verbatim}[fontsize=\small,frame=single, commandchars=\\\{\}]
+\userinput{10000 10}
+8.5
+\end{Verbatim}
+This gives you an experimental runtime
+\[
+T(10000)
+\]
+of the bubblesort.
+
+Next, plot the data points on a graph.
+See next page on how to do it in \LaTeX.
+
+Finally, find an $n^d$ (i.e., find $d$ with $d$ as small as possible)
+such that
+\[
+T(n) = O(n^d)
+\]
+You do that by finding an $N$ and a $C$ such that
+the curve of $Cn^d$ is above $T(n)$ for all $n \geq N$, i.e.,
+such that for $n \geq N$,
+\[
+T(n) \leq C n^d
+\]
+
+Include the following for this question:
+\begin{enumerate}[nosep]
+\item[(a)] C\texttt{++} source code.
+  \item[(b)] Bash shell session with collection of runtimes.
+  \item[(c)] Graph showing the plot of $T(n)$ and $Cn^d$. State clearly the $C$
+  and the $d$. Also, indicate clearly $N$ on the $n$--axis.
+\end{enumerate}

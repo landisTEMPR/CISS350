@@ -1,0 +1,42 @@
+%-*-latex-*-
+The goal is to compute the big-$O$ of the best and worst
+runtime performance
+of the following algorithm. 
+Here's the algorithm:
+\begin{Verbatim}[frame=single]
+INPUT:  x - array of doubles
+        n - size of x
+        a - int
+OUTPUT: None
+ALGORITHM:
+
+    a = x[0] / 2                               
+
+    for i = 0, 1, 2, ..., 100000:
+
+        if a < 100:
+            for j = 0, 1, 2, ..., n-1:
+                x[i] = x[i] + a                
+
+            for j = 0, 1, 2, ..., (n-1)/2:
+                if x[j] < 5:                   
+                    x[j] = x[j] * x[0]         
+
+\end{Verbatim}
+
+(During your analysis, just treat $n - 1$ as though it's even so that 
+$(n - 1)/2$ is an integer.)
+
+(a) Write down the big-O of $T_b(n)$ as $O(n^k)$
+where $k$ is the smallest possible positive integer.
+(You are strongly advised to write down the precise expression
+for $T_b(n)$ on your own. 
+For grading purposes, you just have to write down the big-O of $T_b(n)$.)
+
+(b) Write down the big-O of $T_w(n)$ as $O(n^k)$
+where $k$ is the smallest possible positive integer.
+(You are strongly advised to write down the precise expression
+for $T_w(n)$ on your own. 
+For grading purposes, you just have to write down the big-O of $T_w(n)$.)
+
+

@@ -1,0 +1,45 @@
+The goal is to compute the big-$O$ of the runtime performance
+of the following algorithm. 
+Here's the algorithm:
+\begin{Verbatim}[frame=single]
+INPUT:  x - array of doubles
+        n - size of x
+        
+OUTPUT: result is stored in z
+ALGORITHM:
+
+    for i = 0, 1, 2, ..., n - 1:
+        z = z + x[i] * x[i]
+\end{Verbatim}
+This is rewritten with timings as follows:
+\begin{Verbatim}[frame=single]
+INPUT:  x - array of doubles
+        n - size of x
+        
+OUTPUT: result is stored in z
+ALGORITHM:                      
+         i = 0                   time t1     
+LOOP:    if i >= n:              time t2      
+             goto ENDLOOP        time t3      
+         z = z + x[i] * x[i]     time t4      
+         i = i + 1               time t5
+         goto LOOP               time t6
+ENDLOOP:
+\end{Verbatim}
+The only relevant timing of the statements are given.
+
+
+(a) Write down $T(n)$ in terms of $n$ and the 
+$t_1$, $t_2$, $t_3$, ....
+You should write it as a polynomial of $n$ from the highest
+degree term to the lowest.
+
+(b) Write down the big-$O$ of $T(n)$ as $O(n^k)$
+where $k$ is the smallest possible  positive integer.
+
+
+This is a fraction: $\frac{1}{2}$.
+This is a fraction:
+\[
+T(n) = \frac{1}{2} t_1 n + (t_2 + t_3) n^2 = O(n^2)
+\]

@@ -1,0 +1,23 @@
+%-*-latex-*-
+(a)
+The timings with the number of times a statement is executed is as follows:
+\begin{Verbatim}[frame=single]
+         i = 0                   time t1    1
+LOOP:    if i >= n:              time t2    n + 1
+             goto ENDLOOP        time t3    1 
+         z = z + x[i] * x[i]     time t4    n
+         i = i + 1               time t5    n
+         goto LOOP               time t6    n
+ENDLOOP:
+\end{Verbatim}
+Therefore
+\[
+T(n) = (t_2 + t_4 + t_5 + t_6)n + (t_1 + t_2 + t_3)
+\]
+
+(b)
+We have
+\[
+T(n) = O(n)
+\]
+\qed

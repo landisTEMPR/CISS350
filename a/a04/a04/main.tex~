@@ -1,0 +1,195 @@
+\input{myassignmentpreamble}
+\input{yliow}
+\input{ciss350}
+\renewcommand\TITLE{Assignment 4}
+
+\begin{document}
+\topmatter
+
+\objectives{
+\begin{tightlist}
+\item Computation of big-$O$ of the worst case runtime performance
+a given algorithm.
+\item Computation of big-$O$ of the best case runtime performance
+a given algorithm.
+\item Computation of big-$O$ of the average case runtime performance
+a given algorithm.
+\end{tightlist}
+}
+
+Given an algorithm, 
+$T_w(n)$ denotes the worst runtime, 
+$T_a(n)$ the average runtime, and
+$T_b(n)$ the best runtime.
+$T(n)$ denotes the worst runtime
+of the algorithm.
+
+Recall that 
+\[
+An^2 + Bn + C = O(n^2)
+\]
+and
+\[
+Bn + C = O(n)
+\]
+and
+\[
+C = O(1)
+\]
+where $A, B$, and $C$ are constants.
+In general
+\[
+a_dn^d + a_{d-1} n^{n-1} + \cdots + a_0 = O(n^d)
+\]
+where $a_i$'s are constants.
+Of course it's also true that
+\[
+3n^2 - 5n + 10 = O(n^3)
+\]
+and
+\[
+3n^2 - 5n + 10 = O(n^{3.5})
+\]
+and in fact
+\[
+3n^2 - 5n + 10 = O(n^{k})
+\]
+for any real number $k \geq 2$.
+But the practice is to provide the best (i.e. tightest) bound.
+
+For grading purposes, you must follow the following instructions:
+\begin{tightlist}
+\item When assigning times $t_i$, start with $t_1$ (not $t_0$)
+and use $t_1, t_2, ...$ without skipping any index.
+\item When writing down exact runtimes, list the term with the highest
+growth rate. For instance, do not write
+\[
+T(n) = t_1 + (t_2 + t_6)n^{100} + t_3 n^{15.25}
+\]
+Instead, write this:
+\[
+T(n) = (t_2 + t_6)n^{100} + t_3 n^{15.25} + t_1 
+\]
+\item When writing the constants for each term in the runtime, arrange the
+constants in ascending index values. For instance, do not write tbis:
+\[
+T(n) = (t_3 + t_1 + t_2) n^{100} + (t_7 + t_2 + t_1) n^{15.25}
+\]
+Instead, write this:
+\[
+T(n) = (t_1 + t_2 + t_3) n^{100} + (t_1 + t_2 + t_7) n^{15.25}
+\]
+\item Write legibly and clearly. If there's any ambiguity, then I
+reserve the right to interpret what you are trying to convey.
+And I am usually very good at picking the wrong interpretation.
+\item Good writing means clear and unambiguous writing.
+\lq\lq $x = 42$'' is clearer than \lq\lq $42$''.
+It does not even take that much time (nor waste ink) to write the former.
+If I see any ambiguity like the above, you will get a 0 for the whole question.
+
+\item
+There's a big difference between \lq\lq $x = 42$'' and \lq\lq $x \, \, 42$''.
+No one would say
+a\lq\lq John tall'' when it should be
+``John is tall'',
+If I see something similar t
+\lq\lq $x \, \, 42$'', you would get a 0 for whole question.
+
+\item In general, if I see any obviously bad/improper mathematical writing,
+I will give you a zero.
+
+\end{tightlist}
+
+%==============================================================================
+
+\newpage
+Q1. OMITTED FOR SPRING 2018.
+
+%==============================================================================
+
+\newpage
+Q2. OMITTED FOR SPRING 2018.
+
+%==============================================================================
+
+\newpage
+Q3. SOLUTION PROVIDED.
+
+\input{../a04q03/question/main.tex}
+
+\newpage
+\SOLUTION
+
+%\input{../a04q03/question/skeleton.tex} -- SAME AS FILE BELOW
+\input{q03.tex}
+
+%==============================================================================
+
+\newpage
+Q4.
+\input{../a04q04/question/main.tex}
+
+\newpage
+\SOLUTION
+%\input{../a04q04/question/skeleton.tex} -- SAME AS FILE BELOW
+\input{q04.tex}
+
+%==============================================================================
+
+\newpage
+Q5.
+\input{../a04q05/question/main.tex}
+
+
+\newpage
+\SOLUTION
+
+%\input{../a04q05/question/skeleton.tex}
+\input{q05.tex}
+
+%==============================================================================
+
+\newpage
+Q6.
+\input{../a04q06/question/main.tex}
+
+\newpage
+\SOLUTION
+
+%\input{../a04q06/question/skeleton.tex}
+\input{q06.tex}
+
+%==============================================================================
+
+\newpage
+Q7.
+\input{../a04q07/question/main.tex}
+
+\newpage
+\SOLUTION
+
+\input{q07.tex}
+
+%==============================================================================
+
+\newpage
+Q8.
+\input{../a04q08/question/main.tex}
+
+\newpage
+\SOLUTION
+
+\input{q08.tex}
+
+%==============================================================================
+
+\newpage
+Q9.
+\input{../a04q09/question/main.tex}
+
+\newpage
+\SOLUTION
+
+\input{q09.tex}
+
+\end{document}

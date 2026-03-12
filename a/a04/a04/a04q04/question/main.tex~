@@ -1,0 +1,73 @@
+The goal is to compute the big-$O$ of the best and worse runtime performance
+of the following algorithm. 
+Here's the algorithm:
+\begin{Verbatim}[frame=single]
+INPUT:  x - array of doubles
+        n - size of x
+        a - int
+OUTPUT: None
+ALGORITHM:
+
+    a = x[0] / 2                           
+
+    for i = 0, 1, 2, ..., 100000:
+
+        for j = 0, 1, 2, ..., n-1:
+            x[j] = x[j] + a                
+
+        for j = 0, 1, 2, ..., (n - 1)/2:
+            if x[j] < 5:                   
+                x[j] = x[j] * x[0]         
+
+\end{Verbatim}
+
+\begin{Verbatim}[frame=single]
+INPUT:  x - array of doubles
+        n - size of x
+        a - int
+OUTPUT: None
+ALGORITHM:
+
+          a = x[0] / 2            time t1
+
+          i = 0                   time t2           
+LOOP1:    if i > 100000:          time t3
+              goto ENDLOOP        time t4
+
+          j = 0                   time t5
+LOOP2:    if j > n - 1:           time t6
+              goto ENDLOOP2       time t7
+          x[j] = x[j] + a         time t8
+          j = j + 1               time t9
+          goto LOOP2              time t10
+ENDLOOP2:
+          j = 0                   time t11
+LOOP3:    if j > (n - 1)/2:       time t12
+              goto ENDLOOP3       time t13
+
+          if x[j] >= 5:           time t14
+              goto ELSE           time t15
+          x[j] = x[j] * x[0]      time t16
+ELSE:     j = j + 1               time t17
+          goto LOOP3              time t18
+ENDLOOP3:
+          i = i + 1               time t19
+          goto LOOP1              time t20
+ENDLOOP1:
+\end{Verbatim}
+
+
+(a) Write down $T_w(n)$ in terms of $n$ and the $t_1$, $t_2$,....
+You should write it as a polynomial of $n$ from the highest
+degree term to the lowest.
+
+(b) Write down the big-$O$ of $T_w(n)$ as $O(n^k)$
+where $k$ is the smallest possible  positive integer.
+
+(c) Write down the big-$O$ of $T_b(n)$ as
+$O(n^k)$
+where $k$ is the smallest possible  positive integer.
+(You are strongly advised to compute the
+ precise $T_b(n)$ on your own of course.
+For grading purposes, you just have to write down the big-O.)
+

@@ -1,0 +1,25 @@
+%-*-latex-*-
+
+
+(a) 
+The timings with the number of times a statement is executed
+is as follows (complete it like the solution given earlier):
+\begin{Verbatim}[frame=single,commandchars]
+           a = a * a               time t1
+
+           i = 0                   time t2
+LOOP1:     if i >= n:              time t3
+               goto ENDLOOP1       time t4
+           x[i] = x[i] + a         time t5
+
+           j = 0                   time t6
+LOOP2:     if j > i:               time t7
+               goto ENDLOOP2       time t8
+           x[j] = x[i] * a         time t9
+           j = j + 1               time t10
+           goto LOOP2              time t11
+ENDLOOP2:
+           i = i + 1               time t12
+           goto LOOP1              time t13
+ENDLOOP1:
+\end{Verbatim}

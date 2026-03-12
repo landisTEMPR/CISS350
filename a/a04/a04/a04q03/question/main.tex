@@ -1,0 +1,29 @@
+%-*-latex-*-
+The goal is to compute the big-$O$ of the runtime performance
+of the following algorithm. 
+(The best, worst, and average runtimes are the same.)
+Here's the algorithm:
+\begin{Verbatim}[frame=single]
+INPUT:  x - array of doubles
+        n - size of x
+        a - int
+OUTPUT: None
+ALGORITHM:
+
+    a = a * a                              
+
+    for i = 0, 1, 2, ..., n-1:
+        x[i] = x[i] + a                    
+
+        for j = 0, 1, 2, ..., i:
+            x[j] = x[i] * a                
+
+\end{Verbatim}
+
+(a) Write down $T(n)$ in terms of $n$ and the $t_1, t_2, ...$.
+You should write it as a polynomial of $n$ from the highest
+degree term to the lowest.
+
+(b) Write down the big-$O$ of $T(n)$ as $O(n^k)$
+where $k$ is the smallest possible  positive integer.
+

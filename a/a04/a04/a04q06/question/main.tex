@@ -1,0 +1,21 @@
+%-*-latex-*-
+State the big-O of the runtime of the following sorting algorithm
+\begin{console}
+INPUT:   x - array
+         n - size of array x
+
+ALGORITHM:
+
+for i = 0, 1, 2, ..., n - 2:
+    for j = 0, 1, 2, ..., n - 2:
+        if x[j] < x[j + 1]:
+            t = x[j]
+            x[j] = x[j + 1]
+            x[j + 1] = t
+
+\end{console}
+
+(You are strongly advised to translate the above to code
+that allows you compute the runtime and then  
+write down the precise $T(n)$. For grading purposes
+you just have to write down the big-O of $T(n)$.)
