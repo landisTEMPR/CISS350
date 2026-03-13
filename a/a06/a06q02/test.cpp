@@ -3,23 +3,24 @@
 
 #include <iostream>
 #include "SLNode.h"
-#include "SLList.h"
 
 int main()
 {
     SLNode< int > node(5);
     std::cout << node << std::endl;
-
-    SLNode< int >::debug_printing(false);
-    std::cout << node << std::endl;
+    
     SLNode< int >::debug_printing(true);
-
+    std::cout << node << std::endl;
+    // SLNode< int >::debug_printing(false);
+    
     std::cout << node.get_key() << std::endl;
     std::cout << node.get_next() << std::endl;
     node.set_key(6);
     SLNode< int > node2(7);
     node.set_next(&node2);
-
+    std::cout << node << std::endl;
+    std::cout << node2 << std::endl;
+    /*
     SLList< int > list;
     std::cout << list << std::endl;
 
@@ -148,6 +149,7 @@ int main()
 
     list.clear();
     std::cout << list.is_empty() << std::endl;
+    */
 
     return 0;
 

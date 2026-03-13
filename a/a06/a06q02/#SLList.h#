@@ -38,3 +38,43 @@ std::ostream & operator<<(std::ostream & cout, const SLList<int> & list)
 }
 
 #endif
+// File : SLList.h
+// Author : Brysen Landis
+
+#ifndef SLLIST_H
+#define SLLIST_H
+
+#include <iostream>
+
+template < typename T >
+
+class IndexError
+{};
+
+class ValueError
+{};
+
+template < typename T>
+class SSList
+{
+  public:
+    SLList()
+        : phead_(NULL)
+    {}
+    
+  private:
+    SLNode < T > * phead_;
+};
+
+
+std::ostream & operator<<(std::ostream & cout, const SLList<int> & list)
+{
+    if (SLList<int>::debug_printing())
+    {
+        cout << "<SLList " << &list
+             << " key:" << list.get_key()
+             << ", next:" << 
+    }
+}
+
+#endif
