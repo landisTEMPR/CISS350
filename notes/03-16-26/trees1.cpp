@@ -36,18 +36,20 @@ std::ostream & operator<<(std::ostream & cout, const Node & n)
 
 void preorder_DFT_print(Node * p)
 {
-    // empty case
+    // empty/base case
     if (p == NULL)
     {
         std::cout << ' ';
     }
-    // non empty case
+    // recursive case
     else
     {
         std::cout << p->key_ << ' ';
         preorder_DFT_print(p->left_);
         preorder_DFT_print(p->right_);
     }
+
+    return;
 }
     
 int main()
