@@ -36,6 +36,18 @@ std::ostream & operator<<(std::ostream & cout, const Node & n)
 
 void preorder_DFT_print(Node * p)
 {
+    // empty case
+    if (p == NULL)
+    {
+        std::cout << ' ';
+    }
+    // non empty case
+    else
+    {
+        std::cout << p->key_ << ' ';
+        preorder_DFT_print(p->left_);
+        preorder_DFT_print(p->right_);
+    }
 }
     
 int main()
@@ -85,14 +97,14 @@ int main()
     /*
       traversals
       -- depth first traversals
-         -- preorder DFT
-         -- inorder DFT
-         -- postorder DFT
-      -- breadth first traversal BFT
-      
+         -- preorder DFT print = root, left, right
+         -- inorder DFT print = left, root, right
+         -- postorder DFT print = left, right, root
+      -- breadth first traversal BFT     
      */
-
+ 
     preorder_DFT_print(p10);
+    std::cout << std::endl;
     
     return 0;
 }
