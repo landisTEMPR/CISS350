@@ -1,14 +1,14 @@
 #include <iostream>
 
 /*
-               10
+  10
 
-          20         8
+  20         8
 
-       4     30   2     12
+  4     30   2     12
 
-            6  3 1  5      7
- */
+  6  3 1  5      7
+*/
 
 
 class Node
@@ -21,6 +21,12 @@ public:
     Node * left_;
     Node * right_;
     Node * parent_;
+};
+
+class Queue
+{
+public:
+    int key_;
 };
 
 std::ostream & operator<<(std::ostream & cout, const Node & n)
@@ -39,7 +45,7 @@ void preorder_DFT_print(Node * p)
     // empty/base case
     if (p == NULL)
     {
-        std::cout << ' ';
+        std::cout << " *";
     }
     // recursive case
     else
@@ -51,7 +57,45 @@ void preorder_DFT_print(Node * p)
 
     return;
 }
-    
+
+void inorder_DFT_print(Node * p)
+{
+ 
+    // empty/base case
+    if (p == NULL)
+    {
+        std::cout << " *";
+    }
+    // recursive case
+    else
+    {
+        preorder_DFT_print(p->left_);
+        std::cout << p->key_ << ' ';
+        preorder_DFT_print(p->right_);
+    }
+
+    return;   
+}
+
+void postorder_DFT_print(Node * p)
+{
+    // empty/base case
+    if (p == NULL)
+    {
+        std::cout << " *";
+    }
+    // recursive case
+    else
+    {
+        preorder_DFT_print(p->left_);
+        preorder_DFT_print(p->right_);
+        std::cout << p->key_ << ' ';
+    }
+
+    return;
+}
+
+
 int main()
 {
     Node * p10 = new Node(10);
@@ -99,14 +143,29 @@ int main()
     /*
       traversals
       -- depth first traversals
-         -- preorder DFT print = root, left, right
-         -- inorder DFT print = left, root, right
-         -- postorder DFT print = left, right, root
+      -- preorder DFT print = root, left, right
+      -- inorder DFT print = left, root, right
+      -- postorder DFT print = left, right, root
       -- breadth first traversal BFT     
-     */
- 
+    */
+
+    // depth first
     preorder_DFT_print(p10);
     std::cout << std::endl;
+    inorder_DFT_print(p10);
+    std::cout << std::endl;
+    postorder_DFT_print(p10);
+    std::cout << std::endl;
+
+    // breadth first
+    // 10 -> push queue
+    // 10 -> pop dequeue
+    // 10 -> print
+    // 20 -> push queue
+    // 8 -> push queue
+    // 20 -> pop dequeue
+    // 20 -> print
+    // 
     
     return 0;
 }
