@@ -63,6 +63,7 @@ void resolveBruteForce(std::vector<Particle*>& particles)
   {
     for (int j = i + 1; j < size; j++)
     {
+      g_collisionCount++;
       resolveCollision(particles[i], particles[j]);
     }
   }
