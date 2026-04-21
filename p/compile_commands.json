@@ -1,0 +1,16 @@
+[
+  {
+    "file": "main.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-I/opt/homebrew/opt/raylib/include",
+      "-I./includes",
+      "main.cpp",
+      "-o",
+      "main"
+    ],
+    "directory": "/Users/brysenlandis/Desktop/ciss350/CISS350/p",
+    "output": "main"
+  }
+]
