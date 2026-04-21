@@ -6,7 +6,7 @@
 
 const int WIN_HEIGHT = 720;
 const int WIN_WIDTH = 1280;
-int NUM_PARTICLES = 100;
+int NUM_PARTICLES = 1000;
 bool useBruteForce = true;
 
 
@@ -32,7 +32,6 @@ int main()
     int vx = (rand() % 5) - 2;
     int vy = (rand() % 5) - 2;
     particles.push_back(new Particle(x, y, rad, vx, vy));
-
   }
   
   while(!WindowShouldClose())
@@ -45,7 +44,7 @@ int main()
       // Update
       for (Particle* p : particles)
       {
-        p->UpdateParticle(useBruteForce);
+        p->UpdateParticle(useBruteForce, particles);
       }
       // Render
       BeginDrawing();
