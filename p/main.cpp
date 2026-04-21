@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "raylib.h"
-#include "includes/particle.h"
+#include "particle.h"
 
 
 const int WIN_HEIGHT = 720;
@@ -19,20 +19,27 @@ int main()
   Particle p;
   p.set_posX(WIN_WIDTH / 2);
   p.set_posY(WIN_HEIGHT / 2);
-  p.set_rad(5);
+  p.set_rad(3);
   p.set_vX(5);
   p.set_vY(5);
 
   std::vector<Particle*> particles;
+  // spawn in a grid instead of random to avoid initial overlap
+  int cols = 40;
+  int rows = 25;
+  float spacingX = WIN_WIDTH  / (float)cols;
+  float spacingY = WIN_HEIGHT / (float)rows;
+
   for (int i = 0; i < NUM_PARTICLES; i++)
-  {
-    int x = rand() % WIN_WIDTH;
-    int y = rand() % WIN_HEIGHT;
-    int rad = 5;
-    int vx = (rand() % 5) - 2;
-    int vy = (rand() % 5) - 2;
-    particles.push_back(new Particle(x, y, rad, vx, vy));
-  }
+  { 
+    float x = (i % cols) * spacingX + spacingX / 2;
+    float y = (i / cols) * spacingY + spacingY / 2;
+    int vx = (rand() % 3) + 1;
+    int vy = (rand() % 3) + 1;
+    if (rand() % 2) { vx *= -1; }
+    if (rand() % 2) { vy *= -1; }
+    particles.push_back(new Particle(x, y, 5, vx, vy));
+  } 
   
   while(!WindowShouldClose())
   {
@@ -42,9 +49,9 @@ int main()
       useBruteForce = !useBruteForce;
     }
       // Update
-      for (Particle* p : particles)
+      for (int i = 0; i < particles.size(); i++)
       {
-        p->UpdateParticle(useBruteForce, particles);
+        particles[i]->UpdateParticle(useBruteForce, particles, i);
       }
       // Render
       BeginDrawing();

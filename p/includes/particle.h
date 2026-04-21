@@ -21,26 +21,26 @@ class Particle
     // draws partricle to screen
     void RenderParticle();
     // updates positions, color, and velocity
-    void UpdateParticle(bool flag, std::vector<Particle*> & particles);
+    void UpdateParticle(bool flag, std::vector<Particle*> & particles, int index);
     // getters and setters
     const float get_posX() { return posX_; }
     const float get_posY() { return posY_; }
     const int get_rad() { return rad_; }
-    const int get_vX() { return vX_; }
-    const int get_vY() { return vY_; }
+    const float get_vX() { return vX_; }
+    const float get_vY() { return vY_; }
     void set_posX(float posX) { posX_ = posX; }
     void set_posY(float posY) { posY_ = posY; }
     void set_rad(int rad) { rad_ = rad; }
-    void set_vX(int vX) { vX_ = vX; }
-    void set_vY(int vY) { vY_ = vY; }
+    void set_vX(float vX) { vX_ = vX; }
+    void set_vY(float vY) { vY_ = vY; }
     // int set_color() { ; }
 
   private:
     float posX_;
     float posY_;
     int rad_;
-    int vX_;
-    int vY_;
+    float vX_;
+    float vY_;
     Color color_;
 };
 
