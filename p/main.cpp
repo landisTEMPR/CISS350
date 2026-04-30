@@ -10,7 +10,7 @@
 #include "constants.h"
 #include "physics.h"
 
-int NUM_PARTICLES = 1000;
+int NUM_PARTICLES = 3000;
 bool useBruteForce = true;
 bool pause = false;
 

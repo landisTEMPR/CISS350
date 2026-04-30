@@ -8,102 +8,66 @@
  * **************************/
 
 #ifndef BINARYSEARCHTREENODE_H
-#define #BINARYSEARCHTREENODE_H
+#define BINARYSEARCHTREENODE_H
 
 #include <iostream>
 
 class BSTNode
 {
-  public:
-    BSTNode (int key, BSTNode* parent_=NULL,
-        BSTNode* left_=NULL,
-        BSTNode* right_NULL)
-      : key_(key), partent_(parent), left_(left), right_(right)
+public:
+    BSTNode(int key, BSTNode * parent_ = NULL,
+            BSTNode * left_ = NULL,
+            BSTNode * right_ = NULL)
+        : key_(key), parent_(parent_), left_(left_), right_(right_)
     {}
 
-    int key() const
+    int key() const  { return key_; }
+    int & key()      { return key_; }
+
+    BSTNode * parent() const    { return parent_; }
+    BSTNode * & parent()        { return parent_; }
+
+    BSTNode * left() const      { return left_; }
+    BSTNode * & left()          { return left_; }
+
+    BSTNode * right() const     { return right_; }
+    BSTNode * & right()         { return right_; }
+
+    BSTNode * root() const
     {
-      return key_;
+        const BSTNode * p = this;
+        while (p->parent_ != NULL) p = p->parent_;
+        return const_cast< BSTNode * >(p);
     }
 
-    int & key()
+    BSTNode * leftmost() const
     {
-      return key_;
+        const BSTNode * p = this;
+        while (p->left_ != NULL) p = p->left_;
+        return const_cast< BSTNode * >(p);
     }
 
-    BSTNode* parent() const
-    {
-      return parent_;
-    }
-
-    BSTNode* & parent()
-    {
-      return parent_;
-    }
-    
-    BSTNode* root() const
-    {
-      return NULL;
-    }
-
-    BSTNode* left() const
-    {
-      return left_;
-    }
-
-    BSTNode* &left()
-    {
-      return left_;
-    }
-
-    BSTNode* leftmost() const
-    {
-      return NULL;
-    }
-
-    BSTNode* right() const
-    {
-      return right_;
-    }
-
-    BSTNode* &right()
-    {
-      return right_;
-    }
-
-    // Returns pointer to the rightmost node of subtree with
-    // this node as root.
     BSTNode * rightmost() const
     {
-      return NULL;
+        const BSTNode * p = this;
+        while (p->right_ != NULL) p = p->right_;
+        return const_cast< BSTNode * >(p);
     }
 
-    // Returns true if the node is a leaf node, i.e. the left
-    // and right are both NULL.
-    bool is_leaf() const
-    {
-      return true;
-    }
+    bool is_leaf()    const { return left_ == NULL && right_ == NULL; }
+    bool is_nonleaf() const { return !is_leaf(); }
+    bool is_root()    const { return parent_ == NULL; }
 
-    bool is_nonleaf() const
-    {
-      return true;
-    }
-
-    bool is_root()
-    {
-      return true;
-    }
-
-  private:
+private:
     int key_;
-    BSTNode* parent_;
-    BSTNode* left_;
-    BSTNode* right_;
+    BSTNode * parent_;
+    BSTNode * left_;
+    BSTNode * right_;
 };
 
-
-
+std::ostream & operator<<(std::ostream &, const BSTNode &);
+void print_inorder(const BSTNode *);
+bool insert(BSTNode * &, int);
+bool remove(BSTNode * &, int);
 
 #endif
-
